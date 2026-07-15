@@ -6,51 +6,52 @@
     <title>My GitHub Website</title>
     <link rel="stylesheet" href="style.css">
     <style>
-  /* Force canvas to be a background layer */
-  #particle-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1; /* Pushes it behind all other text and buttons */
-    background-color: #0d1117; /* Makes your background dark black/gray */
-  }
+      /* Force canvas to be a background layer */
+      #particle-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1; /* Pushes it behind all other text and buttons */
+        background-color: #0d1117; /* Makes your background dark black/gray */
+      }
 
-  /* Ensures your other HTML text stays visible on top of the dark background */
-  body {
-    margin: 0;
-    padding: 0;
-    color: black;
-    font-family: sans-serif;
-  }
-</style>
+      /* Ensures your other HTML text stays visible on top of the dark background */
+      body {
+        margin: 0;
+        padding: 0;
+        color: #ffffff; /* Changed to white so you can read it on the dark background */
+        font-family: sans-serif;
+      }
+    </style>
 </head>
 <body>
     <!-- 1. Add this canvas element at the very top of the body -->
     <canvas id="particle-canvas"></canvas>
-    <header>
+    
+    <header style="padding: 20px; text-align: center;">
         <h1>Welcome to My Website!</h1>
     </header>
     
-    <main>
+    <main style="max-width: 800px; margin: 0 auto; padding: 20px;">
         <section>
             <h2>About Me</h2>
-            <p>assalamualaikum warahmatullahi wabarakatuhu just learned some basics of coding and made this website with some help of ai.</p>
+            <p>Assalamualaikum warahmatullahi wabarakatuhu. I just learned some basics of coding and made this website with some help of AI.</p>
         </section>
 
-        <section>
+        <section style="margin-top: 30px;">
             <h2>random faxx</h2>
             <ul>
                 <li>i am a stupid person</li>
-                <li>i am a dumb person</li></li>
+                <li>i am a dumb person</li>
             </ul>
         </section>
     </main>
 
-    <footer>
+    <footer style="text-align: center; padding: 40px 20px; font-size: 0.8rem; color: #8b949e;">
         <p>&copy; 2026 My first website</p>
     </footer>
     <script src="./script.js"></script>
 </body>
-</html> create index.html
+</html>
