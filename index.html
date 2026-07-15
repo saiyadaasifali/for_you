@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My GitHub Website</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+  /* Force canvas to be a background layer */
+  #particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Pushes it behind all other text and buttons */
+    background-color: #0d1117; /* Makes your background dark black/gray */
+  }
+
+  /* Ensures your other HTML text stays visible on top of the dark background */
+  body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: sans-serif;
+  }
+</style>
 </head>
 <body>
     <!-- 1. Add this canvas element at the very top of the body -->
