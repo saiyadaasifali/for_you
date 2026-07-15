@@ -42,3 +42,21 @@ footer {
     margin-top: 40px;
     color: #777;
 }
+ {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Pushes the canvas behind your text */
+    background-color: #1a1a24; /* Dark cosmic background */
+}
+
+{
+    background: transparent;
+}
+
+ {
+    background: rgba(255, 255, 255, 0.9) !important; 
+    color: #333;
+}
