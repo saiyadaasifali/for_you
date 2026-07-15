@@ -24,7 +24,166 @@
     color: black;
     font-family: sans-serif;
   }
-</style>
+    <style>
+        /* Modern CSS Variables: Optimized for depth and light */
+        :root {
+            --bg-color: #f1f3f9; /* Lighter background for depth */
+            --card-bg: rgba(255, 255, 255, 0.7); /* Translucent */
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --accent: #6366f1; /* Main Purple */
+            --accent-two: #ec4899; /* Pink for gradients */
+            --shadow: 0 10px 30px rgba(99, 102, 241, 0.04); /* Diffuse shadow */
+            --shadow-hover: 0 20px 40px rgba(99, 102, 241, 0.1);
+        }
+
+        /* Dark Mode Theme: Vibrant glow against deep darks */
+        [data-theme="dark"] {
+            --bg-color: #0c0f16;
+            --card-bg: rgba(25, 29, 39, 0.7);
+            --text-main: #f1f5f9;
+            --text-muted: #8e99ac;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Essential Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease-in-out; /* Smooth universal transition */
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 4rem;
+        }
+
+        /* Sleek Nav */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 10%;
+            background-color: var(--card-bg);
+            border-bottom: 1px solid rgba(127,127,127,0.1);
+            position: sticky; top: 0; z-index: 100;
+            backdrop-filter: blur(10px); /* Frosted Glass Nav */
+        }
+        .logo { font-weight: 700; font-size: 1.25rem; color: var(--accent); text-decoration: none; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 1.5rem; font-weight: 500; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* Hero Header */
+        header { text-align: center; padding: 5rem 1rem; max-width: 800px; margin: 0 auto; }
+        header h1 { font-size: 3rem; font-weight: 700; letter-spacing: -0.05em; margin-bottom: 1rem; }
+        header p { font-size: 1.2rem; color: var(--text-muted); }
+
+        /* Container & Layout */
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
+        section { margin-bottom: 4rem; }
+        section h2 { font-size: 1.75rem; margin-bottom: 2rem; color: var(--text-main); opacity: 0.8; }
+
+        /* THE UPGRADED ATTRACTIVE BOXES (CARDS) */
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 2px solid transparent; /* Required for the border gradient trick */
+            border-radius: 20px; /* More rounded, premium corners */
+            padding: 2.5rem; /* Increased inner space */
+            
+            /* Glassmorphism Core: Transparency + Blur */
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px); /* For Safari */
+
+            box-shadow: var(--shadow); /* Soft, diffused layering */
+            
+            position: relative; /* Setup for gradient border hover */
+            z-index: 1; /* Keep content above border */
+        }
+
+        /* THE MAGIC: Gradient Hover Border */
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 20px; /* Match card radius */
+            padding: 2px; /* Defines border thickness */
+            
+            /* Create the dynamic color gradient (Purple to Pink) */
+            background: linear-gradient(135deg, var(--accent), var(--accent-two));
+            
+            /* Hide the border until hover */
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            
+            opacity: 0; /* Hidden initially */
+            transition: opacity 0.3s ease; /* Smooth reveal */
+        }
+
+        /* Action on Hover */
+        .card:hover {
+            transform: translateY(-8px) scale(1.02); /* Pop out and float */
+            box-shadow: var(--shadow-hover); /* Deeper shadow when floating */
+        }
+
+        /* Reveal the gradient border on hover */
+        .card:hover::before {
+            opacity: 1; /* Reveal the border */
+        }
+
+        /* Typography within boxes */
+        .card h3 {
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+            letter-spacing: -0.03em;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.8rem;
+            opacity: 0.9;
+        }
+
+        /* Interactive Buttons */
+        .btn {
+            background: linear-gradient(135deg, var(--accent), var(--accent-two)); /* Gradient Button */
+            color: white;
+            border: none;
+            padding: 0.7rem 1.4rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
+        }
+
+        .btn:hover {
+            box-shadow: 0 6px 15px rgba(99, 102, 241, 0.3);
+            transform: scale(1.03); /* Subtle button grow */
+        }
+
+        /* Utility classes */
+        .theme-toggle { background: none; border: 1px solid rgba(127,127,127,0.2); color: var(--text-main); padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; }
+        .theme-toggle:hover { border-color: var(--accent); }
+
+        footer { text-align: center; margin-top: 5rem; color: var(--text-muted); font-size: 0.9rem; opacity: 0.6; }
+    </style>
+    
 </head>
 <body>
     <!-- 1. Add this canvas element at the very top of the body -->
